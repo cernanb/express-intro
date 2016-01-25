@@ -3,6 +3,8 @@
 var express = require('express'),
 			posts = require('./mock/posts.json');
 
+var port = Number(process.env.PORT || 3000);
+
 //convert the object of posts from posts.json to an array so we can iterate & add to the template 
 var postsLists = Object.keys(posts).map(function(value) {
 																		return posts[value]});
@@ -47,7 +49,7 @@ app.get('/posts', function(req, res) {
 
 });
 
-app.listen(3000, function() {
+app.listen(port, function() {
 
 	console.log("The frontend server is running on port 3000...")
 
